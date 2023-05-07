@@ -76,12 +76,21 @@ const TodoList = () => {
                   onClick={() => handleStatus(item.id)}
                   status={item.status}
                 />
-                <div className="item-title">{item.todo}</div>
+                <div
+                  className="item-title"
+                  style={
+                    item.status === "done"
+                      ? { textDecoration: "line-through" }
+                      : null
+                  }
+                >
+                  {item.todo}
+                </div>
                 <span
                   className="expired"
-                  style={{ fontSize: "15px", margin: "0 8px" }}
+                  style={{ fontSize: "15px", margin: "0 8px 0 24px" }}
                 >
-                  This job have {amountOfDate} day to finished
+                  Expired after {amountOfDate} day
                 </span>
                 <div>
                   <Space direction="vertical">
